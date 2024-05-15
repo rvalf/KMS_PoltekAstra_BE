@@ -26,7 +26,6 @@ public class UttlitiesRest {
     public String logins (@RequestBody Map<String, Object> data) {
         System.out.println("DATATAS : "+ data);
         System.out.println("data login: "+data);
-        System.out.println("reva creating changes on this line");
         return  utilitiesService.login(data);
     }
 

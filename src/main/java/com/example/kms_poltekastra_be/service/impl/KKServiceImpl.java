@@ -26,5 +26,43 @@ public class KKServiceImpl implements KKService {
         return result;
     }
 
+    @Override
+    public String getDataKKbyID(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getDataKelompokKeahlianById", dataList.toArray(new String[0]));
+        return result;
+    }
 
+    @Override
+    public String getListProdi(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getListProdi", dataList.toArray(new String[0]));
+        return result;
+    }
+
+    @Override
+    public String getListKaryawan(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getListKaryawan", dataList.toArray(new String[0]));
+        return result;
+    }
+
+    @Override
+    public String createKK(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_createKelompokKeahlian", dataList.toArray(new String[0]));
+        return result;
+    }
 }
