@@ -43,6 +43,7 @@ public class KKRest {
     @PostMapping("CreateKK")
     public String createKK(@RequestBody Map<String, Object> data){
         System.out.println("CREATE: "+data);
+        System.out.println("Hello REva was here");
         return kkService.createKK(data);
     }
 }
