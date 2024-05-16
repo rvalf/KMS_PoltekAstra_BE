@@ -53,6 +53,7 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getListKaryawan", dataList.toArray(new String[0]));
+        System.out.println("RETURN KRYY"+ result);
         return result;
     }
 
@@ -63,6 +64,40 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_createKelompokKeahlian", dataList.toArray(new String[0]));
+        System.out.println("CREATE RESS"+result);
+        return result;
+    }
+
+    @Override
+    public String editKK(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_editKelompokKeahlian", dataList.toArray(new String[0]));
+        System.out.println("RETRUN EDIT"+result);
+        return result;
+    }
+
+    @Override
+    public String deleteKK(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_deleteKelompokKeahlian", dataList.toArray(new String[0]));
+        System.out.println("RETRUN delll"+result);
+        return result;
+    }
+
+    @Override
+    public String setStatusKK(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_setStatusKelompokKeahlian", dataList.toArray(new String[0]));
+        System.out.println("RETRUN sttts"+result);
         return result;
     }
 }
