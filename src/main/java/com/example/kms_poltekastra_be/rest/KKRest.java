@@ -20,7 +20,7 @@ public class KKRest {
 
     @PostMapping("/GetDataKK")
     public String getDataKK(@RequestBody Map<String, Object> data){
-        System.out.println("DAAAA: "+data);
+//        System.out.println("DAAAA: "+data);
         return kkService.getDataKK(data);
     }
 

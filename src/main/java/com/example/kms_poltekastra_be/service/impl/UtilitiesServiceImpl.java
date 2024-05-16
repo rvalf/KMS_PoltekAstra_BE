@@ -33,7 +33,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
 
     @Override
     public String getListMenu(Map<String, Object> data){
-        System.out.println("Menus : "+data);
+//        System.out.println("Menus : "+data);
         List<String> menuList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
             menuList.add(entry.getValue().toString());
@@ -44,7 +44,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
 
     @Override
     public String login(Map<String, Object> data){
-        System.out.println("Users : "+data);
+//        System.out.println("Users : "+data);
         List<String> userList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
             userList.add(entry.getValue().toString());
