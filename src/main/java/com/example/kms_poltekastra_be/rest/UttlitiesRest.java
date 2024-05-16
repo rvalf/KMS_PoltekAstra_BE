@@ -31,6 +31,7 @@ public class UttlitiesRest {
 
     @PostMapping("/GetListMenu")
     public String getListMenus (@RequestBody Map<String, Object> data) {
+        System.out.println("data getlistmenu: "+data);
         return  utilitiesService.getListMenu(data);
     }
 

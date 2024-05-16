@@ -31,6 +31,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
             menuList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("all_getListMenuKMS", menuList.toArray(new String[0]));
+        System.out.println("Hasil Menu"+result);
         return result;
     }
 
@@ -42,6 +43,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
             userList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("sso_getAuthenticationKMS", userList.toArray(new String[0]));
+        System.out.println("Return Login" + result);
         return result;
     }
 
