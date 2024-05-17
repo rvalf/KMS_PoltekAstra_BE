@@ -36,7 +36,7 @@ public class PustakaServiceImpl implements PustakaService {
             pustakaList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_createPustaka", pustakaList.toArray(new String[0]));
-//        System.out.println(pustakaList);
+        System.out.println("save:"+pustakaList);
         return result;
     }
 

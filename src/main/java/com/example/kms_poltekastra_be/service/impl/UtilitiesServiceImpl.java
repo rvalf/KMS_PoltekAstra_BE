@@ -54,6 +54,17 @@ public class UtilitiesServiceImpl implements UtilitiesService {
     }
 
     @Override
+    public String getUserLogin(Map<String, Object> data){
+//        System.out.println("Menus : "+data);
+        List<String> menuList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            menuList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getDataUserLogin", menuList.toArray(new String[0]));
+        return result;
+    }
+
+    @Override
     public ResponseEntity<?> uploadFile( MultipartFile file) {
         try {
             String originalFilename = file.getOriginalFilename();
