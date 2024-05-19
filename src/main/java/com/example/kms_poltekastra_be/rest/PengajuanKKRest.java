@@ -17,10 +17,21 @@ public class PengajuanKKRest {
         this.pengajuanKKService = pengajuanKKService;
     }
 
+    @PostMapping("/GetAnggotaKK")
+    public String getDataAnggotaKK(@RequestBody Map<String, Object> data){
+//        System.out.println("anggota: "+data);
+        return pengajuanKKService.getDataAnggotaKK(data);
+    }
+
+    @PostMapping("/GetDetailLampiran")
+    public String getDetailLampiran(@RequestBody Map<String, Object> data){
+        System.out.println("lampiran: "+data);
+        return pengajuanKKService.getDetailLampiran(data);
+    }
+
     @PostMapping("/SaveAnggotaKK")
     public String saveDataAnggotaKK(@RequestBody Map<String, Object> data){
-        System.out.println("akk: "+data);
-//        return pengajuanKKService.saveDataAnggotaKK(data);
-        return "dad";
+//        System.out.println("akk: "+data);
+        return pengajuanKKService.saveDataAnggotaKK(data);
     }
 }
