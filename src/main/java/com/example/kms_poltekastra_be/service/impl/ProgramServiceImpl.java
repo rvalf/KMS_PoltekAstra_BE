@@ -22,8 +22,30 @@ public class ProgramServiceImpl implements ProgramService {
         for(Map.Entry<String, Object>entry : data.entrySet()){
             dataList.add(entry.getValue().toString());
         }
-        String result = polmanAstraRepository.callProcedure("kms_getDataKKByPIC", dataList.toArray(new String[0]));
+        String result = polmanAstraRepository.callProcedure("kms_getDataKelompokKeahlianByPIC", dataList.toArray(new String[0]));
         System.out.println("GETDATA "+result);
+        return result;
+    }
+
+    @Override
+    public String createProgram(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_createProgram", dataList.toArray(new String[0]));
+        System.out.println("CREATEPRGRM "+result);
+        return result;
+    }
+
+    @Override
+    public String getProgramByKK(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getDataProgram", dataList.toArray(new String[0]));
+        System.out.println("GETDATAPRGRM "+result);
         return result;
     }
 }

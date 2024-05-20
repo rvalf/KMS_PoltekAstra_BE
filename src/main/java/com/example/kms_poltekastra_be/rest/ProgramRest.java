@@ -18,8 +18,20 @@ public class ProgramRest {
     }
 
     @PostMapping("/GetDataKKByPIC")
-    public String tambahAnggotaByPIC(@RequestBody Map<String, Object> data){
+    public String getDataKKByPIC(@RequestBody Map<String, Object> data){
         System.out.println("DSNNN: "+data);
         return programService.getDataKKByPIC(data);
+    }
+
+    @PostMapping("/CreateProgram")
+    public String tambahProgram(@RequestBody Map<String, Object> data){
+        System.out.println("PRGRM: "+data);
+        return programService.createProgram(data);
+    }
+
+    @PostMapping("/GetProgramByKK")
+    public String getProgramByKK(@RequestBody Map<String, Object> data){
+        System.out.println("GET PRGRM: "+data);
+        return programService.getProgramByKK(data);
     }
 }
