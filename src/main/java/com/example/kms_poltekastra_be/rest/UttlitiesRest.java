@@ -35,6 +35,11 @@ public class UttlitiesRest {
         return  utilitiesService.getListMenu(data);
     }
 
+    @PostMapping("/GetUserLogin")
+    public String getUserLogin (@RequestBody Map<String, Object> data) {
+        return  utilitiesService.getUserLogin(data);
+    }
+
     @PostMapping("/Upload")
     public ResponseEntity<?> UploadFile (@RequestBody MultipartFile file){
         return utilitiesService.uploadFile(file);
