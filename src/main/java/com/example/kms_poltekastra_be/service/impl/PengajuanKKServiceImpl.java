@@ -44,6 +44,7 @@ public class PengajuanKKServiceImpl implements PengajuanKKService {
     @Override
     public String saveDataAnggotaKK(Map<String, Object> data) {
         // Panggil stored procedure pertama
+        System.out.println("Data : "+data);
         List<String> pustakaList = new ArrayList<>();
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             pustakaList.add(entry.getValue().toString());

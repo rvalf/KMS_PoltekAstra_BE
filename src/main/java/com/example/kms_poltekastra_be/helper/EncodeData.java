@@ -2,10 +2,12 @@ package com.example.kms_poltekastra_be.helper;
 
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Component
 public class EncodeData {
 
     public Map<String, Object> htmlEncodeObject(Map<String, Object> data) {
