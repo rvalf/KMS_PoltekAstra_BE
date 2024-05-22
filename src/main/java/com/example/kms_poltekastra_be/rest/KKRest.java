@@ -30,19 +30,39 @@ public class KKRest {
         return kkService.getDataKKbyID(data);
     }
 
-    @PostMapping("GetListProdi")
+    @PostMapping("/GetListProdi")
     public String getListProdi(@RequestBody Map<String, Object> data){
         return kkService.getListProdi(data);
     }
 
-    @PostMapping("GetListKaryawan")
+    @PostMapping("/GetListKaryawan")
     public String getListKaryawan(@RequestBody Map<String, Object> data){
+        System.out.println("KRYY"+ data);
         return kkService.getListKaryawan(data);
     }
 
-    @PostMapping("CreateKK")
+    @PostMapping("/CreateKK")
     public String createKK(@RequestBody Map<String, Object> data){
         System.out.println("CREATE: "+data);
+        System.out.println("Hello REva was here");
         return kkService.createKK(data);
+    }
+
+    @PostMapping("/EditKK")
+    public String editKK(@RequestBody Map<String, Object> data){
+        System.out.println("EDIT: "+data);
+        return kkService.editKK(data);
+    }
+
+    @PostMapping("/DeleteKK")
+    public String deleteKK(@RequestBody Map<String, Object> data){
+        System.out.println("DELLL: "+data);
+        return kkService.deleteKK(data);
+    }
+
+    @PostMapping("/SetStatusKK")
+    public String setStatusKK(@RequestBody Map<String, Object> data){
+        System.out.println("Sttats: "+data);
+        return kkService.setStatusKK(data);
     }
 }
