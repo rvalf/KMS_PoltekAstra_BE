@@ -18,10 +18,7 @@ import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
@@ -67,9 +64,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
     @Override
     public ResponseEntity<?> uploadFile( MultipartFile file) {
         try {
-            String originalFilename = file.getOriginalFilename();
-            String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
-            String newFileName = "FILE_" + System.currentTimeMillis() + fileExtension;
+            String newFileName = generateUniqueFileName(file);
 
             Path filePath = Paths.get(fileBasePath + newFileName);
             Files.copy(file.getInputStream(), filePath);
@@ -84,6 +79,12 @@ public class UtilitiesServiceImpl implements UtilitiesService {
             e.printStackTrace();
             return ResponseEntity.status(500).body("Gagal Upload");
         }
+    }
+
+    private String generateUniqueFileName(MultipartFile file) {
+        String originalFilename = file.getOriginalFilename();
+        String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
+        return "FILE_" + UUID.randomUUID().toString() + fileExtension;
     }
 
     @Override
