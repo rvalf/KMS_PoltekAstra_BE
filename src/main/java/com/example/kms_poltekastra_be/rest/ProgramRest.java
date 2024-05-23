@@ -34,4 +34,22 @@ public class ProgramRest {
         System.out.println("GET PRGRM: "+data);
         return programService.getProgramByKK(data);
     }
+
+    @PostMapping("/EditProgram")
+    public String editProgram(@RequestBody Map<String, Object> data){
+        System.out.println("EDIT PRGRM: "+data);
+        return programService.editProgram(data);
+    }
+
+    @PostMapping("/DeleteProgram")
+    public String deleteProgram(@RequestBody Map<String, Object> data){
+        System.out.println("DLT PRGRM: "+data);
+        return programService.deleteProgram(data);
+    }
+
+    @PostMapping("/SetStatusProgram")
+    public String setStatusProgram(@RequestBody Map<String, Object> data){
+        System.out.println("STS PRGRM: "+data);
+        return programService.setStatusProgram(data);
+    }
 }

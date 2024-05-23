@@ -48,4 +48,37 @@ public class ProgramServiceImpl implements ProgramService {
         System.out.println("GETDATAPRGRM "+result);
         return result;
     }
+
+    @Override
+    public String editProgram(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_editProgram", dataList.toArray(new String[0]));
+        System.out.println("EDIT,PRGRM "+result);
+        return result;
+    }
+
+    @Override
+    public String deleteProgram(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_deleteProgram", dataList.toArray(new String[0]));
+        System.out.println("DLT,PRGRM "+result);
+        return result;
+    }
+
+    @Override
+    public String setStatusProgram(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_setStatusProgram", dataList.toArray(new String[0]));
+        System.out.println("STS,PRGRM "+result);
+        return result;
+    }
 }
