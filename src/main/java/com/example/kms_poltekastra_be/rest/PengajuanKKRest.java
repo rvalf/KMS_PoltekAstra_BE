@@ -42,14 +42,8 @@ public class PengajuanKKRest {
     }
 
     @PostMapping("/SaveAnggotaKK")
-    public ResponseEntity saveDataAnggotaKK(@RequestBody Map<String, Object> data){
+    public String saveDataAnggotaKK(@RequestBody Map<String, Object> data){
 //        System.out.println("akk: "+data);
-        try {
-            Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
-            String result = pengajuanKKService.saveDataAnggotaKK(encodedData);
-            return ResponseEntity.ok().body(result);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to Create Pengajuan", e);
-        }
+        return pengajuanKKService.saveDataAnggotaKK(data);
     }
 }

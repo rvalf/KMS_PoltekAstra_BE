@@ -42,6 +42,7 @@ public class UttlitiesRest {
 
     @PostMapping("/Upload")
     public ResponseEntity<?> UploadFile (@RequestBody MultipartFile file){
+        System.out.println("FILES: "+file);
         return utilitiesService.uploadFile(file);
     }
 
