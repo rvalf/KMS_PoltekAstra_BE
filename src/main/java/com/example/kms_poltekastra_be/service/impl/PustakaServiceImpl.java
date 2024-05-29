@@ -18,37 +18,34 @@ public class PustakaServiceImpl implements PustakaService {
 
     @Override
     public String getDataPustaka(Map<String, Object> data){
-//        System.out.println("Pustakas : "+data);
-        List<String> pustakaList = new ArrayList<>();
+        List<String> dataList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
-            pustakaList.add(entry.getValue().toString());
+            dataList.add(entry.getValue().toString());
         }
-        String result = polmanAstraRepository.callProcedure("kms_getDataPustaka", pustakaList.toArray(new String[0]));
-//        System.out.println("ssss: "+result);
+        String result = polmanAstraRepository.callProcedure("kms_getDataPustaka", dataList.toArray(new String[0]));
+        System.out.println("GetDataPustaka Return Value: "+result);
         return result;
     }
 
     @Override
     public String saveDataPustaka(Map<String, Object> data){
-//        System.out.println("Pustakas : "+data);
-        List<String> pustakaList = new ArrayList<>();
+        List<String> dataList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
-            pustakaList.add(entry.getValue().toString());
+            dataList.add(entry.getValue().toString());
         }
-        String result = polmanAstraRepository.callProcedure("kms_createPustaka", pustakaList.toArray(new String[0]));
-        System.out.println("save:"+pustakaList);
+        String result = polmanAstraRepository.callProcedure("kms_createPustaka", dataList.toArray(new String[0]));
+        System.out.println("SaveDataPustaka Return Value:"+result);
         return result;
     }
 
     @Override
     public String editDataPustaka(Map<String, Object> data){
-//        System.out.println("Pustakas : "+data);
-        List<String> pustakaList = new ArrayList<>();
+        List<String> dataList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
-            pustakaList.add(entry.getValue().toString());
+            dataList.add(entry.getValue().toString());
         }
-        String result = polmanAstraRepository.callProcedure("kms_editPustaka", pustakaList.toArray(new String[0]));
-//        System.out.println(pustakaList);
+        String result = polmanAstraRepository.callProcedure("kms_editPustaka", dataList.toArray(new String[0]));
+        System.out.println("UpdateDataPustaka Return Value: "+result);
         return result;
     }
 
@@ -59,7 +56,7 @@ public class PustakaServiceImpl implements PustakaService {
             pustakaList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_setStatusPustaka", pustakaList.toArray(new String[0]));
-        System.out.println("from Java: "+pustakaList);
+        System.out.println("SetStatusPustaka Return Value: "+pustakaList);
         return result;
     }
 }

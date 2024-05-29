@@ -19,19 +19,31 @@ public class KategoriProgramRest {
 
     @PostMapping("/CreateKategoriProgram")
     public String createDataKatProgram(@RequestBody Map<String, Object> data){
-        System.out.println("CRTKATPROG: "+data);
+        System.out.println("CreateKategoriProgram Request Body: "+data);
         return kategoriProgramService.createDataKategoriProgram(data);
     }
 
     @PostMapping("/GetKategoriByProgram")
     public String getKategoriProgram(@RequestBody Map<String, Object> data){
-        System.out.println("GETKATPROG: "+data);
+        System.out.println("GetKategoriByProgram Request Body: "+data);
         return kategoriProgramService.getDataKategoriProgram(data);
     }
 
     @PostMapping("/EditKategoriProgram")
     public String editKategoriProgram(@RequestBody Map<String, Object> data){
-        System.out.println("EDTKATPROG: "+data);
-        return kategoriProgramService.getDataKategoriProgram(data);
+        System.out.println("EditKategoriProgram Request Body: "+data);
+        return kategoriProgramService.editKategoriProgram(data);
+    }
+
+    @PostMapping("/DeleteKategoriProgram")
+    public String deleteKategoriProgram(@RequestBody Map<String, Object> data){
+        System.out.println("DeleteKategoriProgram Request Body: "+data);
+        return kategoriProgramService.deleteKategoriProgram(data);
+    }
+
+    @PostMapping("/SetStatusKategoriProgram")
+    public String setStatusKategoriProgram(@RequestBody Map<String, Object> data){
+        System.out.println("SetStatusKategoriProgram Request Body: "+data);
+        return kategoriProgramService.setStatusKategoriProgram(data);
     }
 }

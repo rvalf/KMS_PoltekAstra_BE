@@ -23,7 +23,7 @@ public class ProgramServiceImpl implements ProgramService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getDataKelompokKeahlianByPIC", dataList.toArray(new String[0]));
-        System.out.println("GETDATA "+result);
+        System.out.println("GetDataKKByPIC Return Value: "+result);
         return result;
     }
 
@@ -34,7 +34,7 @@ public class ProgramServiceImpl implements ProgramService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_createProgram", dataList.toArray(new String[0]));
-        System.out.println("CREATEPRGRM "+result);
+        System.out.println("CreateProgram Return Value: "+result);
         return result;
     }
 
@@ -45,7 +45,7 @@ public class ProgramServiceImpl implements ProgramService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getDataProgram", dataList.toArray(new String[0]));
-        System.out.println("GETDATAPRGRM "+result);
+        System.out.println("GetProgramByKK Return Value: "+result);
         return result;
     }
 
@@ -56,7 +56,7 @@ public class ProgramServiceImpl implements ProgramService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_editProgram", dataList.toArray(new String[0]));
-        System.out.println("EDIT,PRGRM "+result);
+        System.out.println("EditProgram Return Value: "+result);
         return result;
     }
 
@@ -67,7 +67,7 @@ public class ProgramServiceImpl implements ProgramService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_deleteProgram", dataList.toArray(new String[0]));
-        System.out.println("DLT,PRGRM "+result);
+        System.out.println("DeleteProgram Return Value: "+result);
         return result;
     }
 
@@ -78,7 +78,7 @@ public class ProgramServiceImpl implements ProgramService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_setStatusProgram", dataList.toArray(new String[0]));
-        System.out.println("STS,PRGRM "+result);
+        System.out.println("SetStatusProgram Return Value: "+result);
         return result;
     }
 }

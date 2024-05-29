@@ -21,24 +21,24 @@ public class PustakaRest {
 
     @PostMapping("/GetDataPustaka")
     public String getDataPustaka(@RequestBody Map<String, Object> data){
-//        System.out.println("DADADA: "+data);
+        System.out.println("GetDataPustaka Request Body: "+data);
         return pustakaService.getDataPustaka(data);
     }
 
     @PostMapping("/SaveDataPustaka")
     public String saveDataPustaka(@RequestBody Map<String, Object> data){
-        System.out.println("sep: "+data);
+        System.out.println("SaveDataPustaka Request Body: "+data);
         return pustakaService.saveDataPustaka(data);
     }
     @PostMapping("/UpdateDataPustaka")
     public String editDataPustaka(@RequestBody Map<String, Object> data){
-//        System.out.println("EEEE"+data);
+        System.out.println("UpdateDataPustaka Request Body: "+data);
         return pustakaService.editDataPustaka(data);
     }
 
     @PostMapping("/SetStatusPustaka")
     public String setStatusPustaka(@RequestBody Map<String, Object> data){
-        System.out.println("Status: "+data);
+        System.out.println("SetStatusPustaka Request Body: "+data);
         return pustakaService.setStatusPustaka(data);
     }
 }

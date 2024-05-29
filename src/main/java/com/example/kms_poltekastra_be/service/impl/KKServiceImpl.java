@@ -17,12 +17,12 @@ public class KKServiceImpl implements KKService {
 
     @Override
     public String getDataKK(Map<String, Object> data){
-//        System.out.println("KKs : "+data);
         List<String> dataList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getDataKelompokKeahlian", dataList.toArray(new String[0]));
+        System.out.println("GetDataKK Return Value: " + result);
         return result;
     }
 
@@ -33,6 +33,7 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getDataKelompokKeahlianById", dataList.toArray(new String[0]));
+        System.out.println("GetDataKKByID Return Value: "+result);
         return result;
     }
 
@@ -43,6 +44,7 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getListProdi", dataList.toArray(new String[0]));
+        System.out.println("GetListProdi Return Value: " + result);
         return result;
     }
 
@@ -53,7 +55,7 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getListKaryawan", dataList.toArray(new String[0]));
-        System.out.println("RETURN KRYY"+ result);
+        System.out.println("GetListKaryawan Return Value: "+ result);
         return result;
     }
 
@@ -64,7 +66,7 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_createKelompokKeahlian", dataList.toArray(new String[0]));
-        System.out.println("CREATE RESS"+result);
+        System.out.println("CreateKK Return Value: "+result);
         return result;
     }
 
@@ -75,7 +77,7 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_editKelompokKeahlian", dataList.toArray(new String[0]));
-        System.out.println("RETRUN EDIT"+result);
+        System.out.println("EditKK Return Value: "+result);
         return result;
     }
 
@@ -86,7 +88,7 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_deleteKelompokKeahlian", dataList.toArray(new String[0]));
-        System.out.println("RETRUN delll"+result);
+        System.out.println("DeleteKK Return Value: "+result);
         return result;
     }
 
@@ -97,7 +99,18 @@ public class KKServiceImpl implements KKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_setStatusKelompokKeahlian", dataList.toArray(new String[0]));
-        System.out.println("RETRUN sttts"+result);
+        System.out.println("SetStatusKK Return Value: "+result);
+        return result;
+    }
+
+    @Override
+    public String getDataKKbyProdi(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getDataKelompokKeahlianByProdi", dataList.toArray(new String[0]));
+        System.out.println("GetDataKKbyProdi Return Value: "+result);
         return result;
     }
 }

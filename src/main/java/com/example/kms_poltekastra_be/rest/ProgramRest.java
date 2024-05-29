@@ -19,37 +19,37 @@ public class ProgramRest {
 
     @PostMapping("/GetDataKKByPIC")
     public String getDataKKByPIC(@RequestBody Map<String, Object> data){
-        System.out.println("DSNNN: "+data);
+        System.out.println("GetDataKKByPIC Request Body: "+data);
         return programService.getDataKKByPIC(data);
     }
 
     @PostMapping("/CreateProgram")
     public String tambahProgram(@RequestBody Map<String, Object> data){
-        System.out.println("PRGRM: "+data);
+        System.out.println("CreateProgram Request Body: "+data);
         return programService.createProgram(data);
     }
 
     @PostMapping("/GetProgramByKK")
     public String getProgramByKK(@RequestBody Map<String, Object> data){
-        System.out.println("GET PRGRM: "+data);
+        System.out.println("GetProgramByKK Request Body: "+data);
         return programService.getProgramByKK(data);
     }
 
     @PostMapping("/EditProgram")
     public String editProgram(@RequestBody Map<String, Object> data){
-        System.out.println("EDIT PRGRM: "+data);
+        System.out.println("EditProgram Request Body: "+data);
         return programService.editProgram(data);
     }
 
     @PostMapping("/DeleteProgram")
     public String deleteProgram(@RequestBody Map<String, Object> data){
-        System.out.println("DLT PRGRM: "+data);
+        System.out.println("DeleteProgram Request Body: "+data);
         return programService.deleteProgram(data);
     }
 
     @PostMapping("/SetStatusProgram")
     public String setStatusProgram(@RequestBody Map<String, Object> data){
-        System.out.println("STS PRGRM: "+data);
+        System.out.println("SetStatusProgram Request Body: "+data);
         return programService.setStatusProgram(data);
     }
 }

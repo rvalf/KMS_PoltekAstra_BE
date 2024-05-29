@@ -25,25 +25,26 @@ public class PengajuanKKRest {
     }
 
     @PostMapping("/GetAnggotaKK")
-    public ResponseEntity<String> getDataAnggotaKK(@RequestBody Map<String, Object> data) {
-        try {
-            Map<String, Object> encodedData = encodeData.htmlEncodeObject(data);
-            String result = pengajuanKKService.getDataAnggotaKK(encodedData);
-            return ResponseEntity.ok().body(result);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Failed to Load data", e);
-        }
+    public String getDataAnggotaKK(@RequestBody Map<String, Object> data) {
+        System.out.println("GetAnggotaKK Request Body: "+data);
+        return pengajuanKKService.getDataAnggotaKK(data);
     }
 
     @PostMapping("/GetDetailLampiran")
     public String getDetailLampiran(@RequestBody Map<String, Object> data){
-//        System.out.println("lampiran: "+data);
+        System.out.println("GetDetailLampiran Request Body: "+data);
         return pengajuanKKService.getDetailLampiran(data);
     }
 
     @PostMapping("/SaveAnggotaKK")
     public String saveDataAnggotaKK(@RequestBody Map<String, Object> data){
-//        System.out.println("akk: "+data);
+        System.out.println("SaveAnggotaKK Request Body: "+data);
         return pengajuanKKService.saveDataAnggotaKK(data);
+    }
+
+    @PostMapping("/GetRiwayat")
+    public String getRiwayat(@RequestBody Map<String, Object> data){
+        System.out.println("GetRiwayat Request Body: "+data);
+        return pengajuanKKService.getRiwayatPengajuan(data);
     }
 }

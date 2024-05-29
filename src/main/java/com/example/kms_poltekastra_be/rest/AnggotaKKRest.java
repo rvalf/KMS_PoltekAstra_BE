@@ -19,25 +19,25 @@ public class AnggotaKKRest {
 
     @PostMapping("/GetAnggotaKK")
     public String getListAnggota(@RequestBody Map<String, Object> data){
-        System.out.println("ANGGTA: "+data);
+        System.out.println("GetAnggotaKK Request Body: "+data);
         return anggotaKKService.getListAnggotaByKK(data);
     }
 
     @PostMapping("/SetStatusAnggotaKK")
     public String setStatusAnggota(@RequestBody Map<String, Object> data){
-        System.out.println("ANGGTA: "+data);
+        System.out.println("SetStatusAnggotaKK Request Body: "+data);
         return anggotaKKService.setStatusAnggota(data);
     }
 
     @PostMapping("/GetListDosen")
     public String getListDosenNonAnggotaByKK(@RequestBody Map<String, Object> data){
-        System.out.println("DSNNN: "+data);
+        System.out.println("GetListDosen Request Body: "+data);
         return anggotaKKService.getListDosenNonAnggotaByKK(data);
     }
 
     @PostMapping("/TambahAnggotaByPIC")
     public String tambahAnggotaByPIC(@RequestBody Map<String, Object> data){
-        System.out.println("DSNNN: "+data);
+        System.out.println("TambahAnggotaByPIC Request Body: "+data);
         return anggotaKKService.tambahAnggotaByPIC(data);
     }
 }

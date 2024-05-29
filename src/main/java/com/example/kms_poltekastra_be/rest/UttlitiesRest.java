@@ -32,22 +32,25 @@ public class UttlitiesRest {
 
     @PostMapping("/GetListMenu")
     public String getListMenus (@RequestBody Map<String, Object> data) {
-        return  utilitiesService.getListMenu(data);
+        System.out.println("GetListMenu Request Body: " + data);
+        return utilitiesService.getListMenu(data);
     }
 
     @PostMapping("/GetUserLogin")
     public String getUserLogin (@RequestBody Map<String, Object> data) {
+        System.out.println("GetUserLogin Request Body: "+data);
         return  utilitiesService.getUserLogin(data);
     }
 
     @PostMapping("/Upload")
     public ResponseEntity<?> UploadFile (@RequestBody MultipartFile file){
-        System.out.println("FILES: "+file);
+        System.out.println("Upload Request Body: "+file);
         return utilitiesService.uploadFile(file);
     }
 
     @GetMapping("/Upload/DownloadFile")
     public ResponseEntity<Resource> downloadFile(@RequestParam String namaFile) {
+        System.out.println("DownloadFile Request Body: "+namaFile);
         return utilitiesService.downloadFile(namaFile);
     }
 }

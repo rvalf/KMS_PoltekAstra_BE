@@ -30,12 +30,12 @@ public class UtilitiesServiceImpl implements UtilitiesService {
 
     @Override
     public String getListMenu(Map<String, Object> data){
-//        System.out.println("Menus : "+data);
         List<String> menuList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
             menuList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("all_getListMenuKMS", menuList.toArray(new String[0]));
+        System.out.println("GetListMenu Return Value: "+result);
         return result;
     }
 
@@ -47,17 +47,18 @@ public class UtilitiesServiceImpl implements UtilitiesService {
             userList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("sso_getAuthenticationKMS", userList.toArray(new String[0]));
+        System.out.println(result);
         return result;
     }
 
     @Override
     public String getUserLogin(Map<String, Object> data){
-//        System.out.println("Menus : "+data);
         List<String> menuList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){
             menuList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getDataUserLogin", menuList.toArray(new String[0]));
+        System.out.println("GetUserLogin Return Value: " +result);
         return result;
     }
 
@@ -74,7 +75,6 @@ public class UtilitiesServiceImpl implements UtilitiesService {
             response.put("message", "File uploaded successfully");
 
             return ResponseEntity.ok(response);
-
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(500).body("Gagal Upload");
@@ -83,8 +83,9 @@ public class UtilitiesServiceImpl implements UtilitiesService {
 
     private String generateUniqueFileName(MultipartFile file) {
         String originalFilename = file.getOriginalFilename();
+        String filenameWithoutExtension = originalFilename.substring(0, originalFilename.lastIndexOf('.'));
         String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
-        return "FILE_" + UUID.randomUUID().toString() + fileExtension;
+        return filenameWithoutExtension + UUID.randomUUID().toString() + fileExtension;
     }
 
     @Override

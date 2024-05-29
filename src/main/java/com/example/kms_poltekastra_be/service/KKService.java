@@ -11,4 +11,5 @@ public interface KKService {
     String editKK(Map<String, Object> data);
     String deleteKK(Map<String, Object> data);
     String setStatusKK(Map<String, Object> data);
+    String getDataKKbyProdi(Map<String, Object> data);
 }

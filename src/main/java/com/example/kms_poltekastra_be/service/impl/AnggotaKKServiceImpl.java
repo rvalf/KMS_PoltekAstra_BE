@@ -23,7 +23,7 @@ public class AnggotaKKServiceImpl implements AnggotaKKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getListAnggotaKeahlian", dataList.toArray(new String[0]));
-        System.out.println("HASL ANGGTA"+result);
+        System.out.println("GetAnggotaKK Return Value: "+result);
         return result;
     }
 
@@ -34,7 +34,7 @@ public class AnggotaKKServiceImpl implements AnggotaKKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_setStatusAnggotaKeahlian", dataList.toArray(new String[0]));
-        System.out.println("HAsl STTS"+result);
+        System.out.println("SetStatusAnggotaKK Return Value: "+result);
         return result;
     }
 
@@ -45,7 +45,7 @@ public class AnggotaKKServiceImpl implements AnggotaKKService {
             dataList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getListDosen", dataList.toArray(new String[0]));
-        System.out.println("HAsl DSN"+result);
+        System.out.println("GetListDosen Return Value: "+result);
         return result;
     }
 
@@ -55,8 +55,8 @@ public class AnggotaKKServiceImpl implements AnggotaKKService {
         for(Map.Entry<String, Object>entry : data.entrySet()){
             dataList.add(entry.getValue().toString());
         }
-        String result = polmanAstraRepository.callProcedure("kms_tambahAnggotaByPIC", dataList.toArray(new String[0]));
-        System.out.println("HAsl TMBH"+result);
+        String result = polmanAstraRepository.callProcedure("kms_createAnggotaByPIC", dataList.toArray(new String[0]));
+        System.out.println("TambahAnggotaByPIC Return Value: "+result);
         return result;
     }
 }
