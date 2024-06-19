@@ -124,6 +124,12 @@ public class UtilitiesServiceImpl implements UtilitiesService {
             contentType = "application/pdf";
         } else if (fileName.endsWith(".mp4")) {
             contentType = "video/mp4";
+        } else if (fileName.endsWith(".docx")) {
+            contentType = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+        } else if (fileName.endsWith(".xlsx")) {
+            contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+        } else if (fileName.endsWith(".pptx")) {
+            contentType = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
         } else {
             contentType = "application/octet-stream";
         }
