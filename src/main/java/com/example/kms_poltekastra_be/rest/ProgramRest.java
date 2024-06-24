@@ -35,6 +35,12 @@ public class ProgramRest {
         return programService.getProgramByKK(data);
     }
 
+    @PostMapping("/GetProgramByKKFahriel")
+    public String getDataProgramByKK(@RequestBody Map<String, Object> data){
+        System.out.println("program"+data);
+        return programService.getDataProgramByKK(data);
+    }
+
     @PostMapping("/EditProgram")
     public String editProgram(@RequestBody Map<String, Object> data){
         System.out.println("EditProgram Request Body: "+data);

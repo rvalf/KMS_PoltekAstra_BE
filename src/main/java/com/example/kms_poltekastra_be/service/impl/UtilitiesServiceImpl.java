@@ -8,6 +8,7 @@ import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,21 +30,20 @@ public class UtilitiesServiceImpl implements UtilitiesService {
     private final String fileBasePath = "src/main/resources/assets/";
 
     @Override
-    public String getListMenu(Map<String, Object> data){
+    public String getListMenu(Map<String, Object> data) {
         List<String> menuList = new ArrayList<>();
-        for(Map.Entry<String, Object>entry : data.entrySet()){
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
             menuList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("all_getListMenuKMS", menuList.toArray(new String[0]));
-        System.out.println("GetListMenu Return Value: "+result);
+        System.out.println("GetListMenu Return Value: " + result);
         return result;
     }
 
     @Override
-    public String login(Map<String, Object> data){
-//        System.out.println("Users : "+data);
+    public String login(Map<String, Object> data) {
         List<String> userList = new ArrayList<>();
-        for(Map.Entry<String, Object>entry : data.entrySet()){
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
             userList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("sso_getAuthenticationKMS", userList.toArray(new String[0]));
@@ -52,18 +52,18 @@ public class UtilitiesServiceImpl implements UtilitiesService {
     }
 
     @Override
-    public String getUserLogin(Map<String, Object> data){
+    public String getUserLogin(Map<String, Object> data) {
         List<String> menuList = new ArrayList<>();
-        for(Map.Entry<String, Object>entry : data.entrySet()){
+        for (Map.Entry<String, Object> entry : data.entrySet()) {
             menuList.add(entry.getValue().toString());
         }
         String result = polmanAstraRepository.callProcedure("kms_getDataUserLogin", menuList.toArray(new String[0]));
-        System.out.println("GetUserLogin Return Value: " +result);
+        System.out.println("GetUserLogin Return Value: " + result);
         return result;
     }
 
     @Override
-    public ResponseEntity<?> uploadFile( MultipartFile file) {
+    public ResponseEntity<?> uploadFile(MultipartFile file) {
         try {
             String newFileName = generateUniqueFileName(file);
 
@@ -108,6 +108,30 @@ public class UtilitiesServiceImpl implements UtilitiesService {
                     .headers(headers)
                     .contentLength(file.length())
                     .body(resource);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
+    }
+
+    @Override
+    public ResponseEntity<byte[]> previewFile(String fileName) {
+        try {
+            Path filePath = Paths.get(fileBasePath, fileName);
+            File file = filePath.toFile();
+
+            if (!file.exists())
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+
+            byte[] fileContent = Files.readAllBytes(filePath); // Baca file ke byte array
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_PDF_VALUE); // Set content type ke PDF
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + fileName + "\""); // Set disposition
+
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .body(fileContent);
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);

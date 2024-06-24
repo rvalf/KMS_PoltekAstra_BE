@@ -12,4 +12,5 @@ public interface UtilitiesService {
     public String getUserLogin(Map<String, Object> data);
     public ResponseEntity<?> uploadFile(MultipartFile file);
     public ResponseEntity<Resource> downloadFile(String fileName);
+    public ResponseEntity<byte[]> previewFile(String fileName);
 }
