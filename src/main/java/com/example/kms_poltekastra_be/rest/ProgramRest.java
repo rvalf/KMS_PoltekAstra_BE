@@ -29,13 +29,13 @@ public class ProgramRest {
         return programService.createProgram(data);
     }
 
-    @PostMapping("/GetProgramByKK")
+    @PostMapping("/GetProgram")
     public String getProgramByKK(@RequestBody Map<String, Object> data){
         System.out.println("GetProgramByKK Request Body: "+data);
         return programService.getProgramByKK(data);
     }
 
-    @PostMapping("/GetProgramByKKFahriel")
+    @PostMapping("/GetProgramByKK")
     public String getDataProgramByKK(@RequestBody Map<String, Object> data){
         System.out.println("program"+data);
         return programService.getDataProgramByKK(data);

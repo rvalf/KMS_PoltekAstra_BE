@@ -30,7 +30,7 @@ public class UtilitiesServiceImpl implements UtilitiesService {
     private final String fileBasePath = "src/main/resources/assets/";
 
     @Override
-    public String getListMenu(Map<String, Object> data) {
+     public String getListMenu(Map<String, Object> data) {
         List<String> menuList = new ArrayList<>();
         for (Map.Entry<String, Object> entry : data.entrySet()) {
             menuList.add(entry.getValue().toString());
