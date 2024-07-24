@@ -4,8 +4,12 @@ import java.util.Map;
 
 public interface KategoriProgramService {
     String getDataKategoriProgram(Map<String, Object> data);
+    String getDataKategoriProgramById(Map<String, Object> data);
     String createDataKategoriProgram(Map<String, Object> data);
     String editKategoriProgram(Map<String, Object> data);
     String deleteKategoriProgram(Map<String, Object> data);
     String setStatusKategoriProgram(Map<String, Object> data);
+    String createBookmark(Map<String, Object> data);
+    String getBookmark(Map<String, Object> data);
+    String deleteBookmark(Map<String, Object> data);
 }

@@ -75,4 +75,10 @@ public class QuizRest {
         return quizService.saveReviewQuiz(data);
     }
 
+    @CrossOrigin
+    @PostMapping("/UpdateDataQuiz")
+    public String editDataQuiz(@RequestBody Map<String, Object> data) {
+        System.out.println("quiz" + data);
+        return quizService.editDataQuiz(data);
+    }
 }

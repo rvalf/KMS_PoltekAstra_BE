@@ -28,6 +28,11 @@ public class KategoriProgramRest {
         System.out.println("GetKategoriByProgram Request Body: "+data);
         return kategoriProgramService.getDataKategoriProgram(data);
     }
+    @PostMapping("/GetKategoriById")
+    public String getKategoriProgramById(@RequestBody Map<String, Object> data){
+        System.out.println("GetKategoriByProgram Request Body: "+data);
+        return kategoriProgramService.getDataKategoriProgramById(data);
+    }
 
     @PostMapping("/EditKategoriProgram")
     public String editKategoriProgram(@RequestBody Map<String, Object> data){
@@ -45,5 +50,23 @@ public class KategoriProgramRest {
     public String setStatusKategoriProgram(@RequestBody Map<String, Object> data){
         System.out.println("SetStatusKategoriProgram Request Body: "+data);
         return kategoriProgramService.setStatusKategoriProgram(data);
+    }
+
+    @PostMapping("/CreateBookmark")
+    public String CreateBookmark(@RequestBody Map<String, Object> data){
+        System.out.println("CreateBookmark Request Body: "+data);
+        return kategoriProgramService.createBookmark(data);
+    }
+
+    @PostMapping("/GetBookmark")
+    public String GetBookmark(@RequestBody Map<String, Object> data){
+        System.out.println("GetBookmark Request Body: "+data);
+        return kategoriProgramService.getBookmark(data);
+    }
+
+    @PostMapping("/DeleteBookmark")
+    public String DeleteBookmark(@RequestBody Map<String, Object> data){
+        System.out.println("DeleteBookmark Request Body: "+data);
+        return kategoriProgramService.deleteBookmark(data);
     }
 }

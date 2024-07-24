@@ -28,6 +28,17 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     @Override
+    public String getDataKKByAKK(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getDataKelompoakkahlianByAKK", dataList.toArray(new String[0]));
+        System.out.println("GetDataKKByAKK Return Value: "+result);
+        return result;
+    }
+
+    @Override
     public String createProgram(Map<String, Object> data) {
         List<String> dataList = new ArrayList<>();
         for(Map.Entry<String, Object>entry : data.entrySet()){

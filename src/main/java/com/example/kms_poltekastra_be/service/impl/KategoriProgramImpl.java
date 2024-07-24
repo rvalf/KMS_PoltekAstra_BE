@@ -27,6 +27,16 @@ public class KategoriProgramImpl implements KategoriProgramService {
         return result;
     }
 
+    public String getDataKategoriProgramById(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getDataKategoriKKById", dataList.toArray(new String[0]));
+        System.out.println("GetKategoriByProgram Return Value: "+result);
+        return result;
+    }
+
     @Override
     public String createDataKategoriProgram(Map<String, Object> data) {
         List<String> dataList = new ArrayList<>();
@@ -68,6 +78,39 @@ public class KategoriProgramImpl implements KategoriProgramService {
         }
         String result = polmanAstraRepository.callProcedure("kms_setStatusKategoriProgram", dataList.toArray(new String[0]));
         System.out.println("SetStatusKategoriProgram Return Value: "+result);
+        return result;
+    }
+
+    @Override
+    public String createBookmark(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_createBookmark", dataList.toArray(new String[0]));
+        System.out.println("createBookmark Return Value: "+result);
+        return result;
+    }
+
+    @Override
+    public String getBookmark(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_getBookmark", dataList.toArray(new String[0]));
+        System.out.println("getBookmark Return Value: "+result);
+        return result;
+    }
+
+    @Override
+    public String deleteBookmark(Map<String, Object> data) {
+        List<String> dataList = new ArrayList<>();
+        for(Map.Entry<String, Object>entry : data.entrySet()){
+            dataList.add(entry.getValue().toString());
+        }
+        String result = polmanAstraRepository.callProcedure("kms_deleteBookmark", dataList.toArray(new String[0]));
+        System.out.println("deleteBookmark Return Value: "+result);
         return result;
     }
 }

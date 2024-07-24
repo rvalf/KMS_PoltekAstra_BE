@@ -53,4 +53,9 @@ public class UttlitiesRest {
         System.out.println("DownloadFile Request Body: "+namaFile);
         return utilitiesService.downloadFile(namaFile);
     }
+
+    @GetMapping("/Upload/PreviewFile")
+    public ResponseEntity<byte[]> previewFile(@RequestParam String namaFile) {
+        return utilitiesService.previewFile(namaFile);
+    }
 }
